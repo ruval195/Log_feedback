@@ -24,7 +24,7 @@ jobs:
 
       - name: Run anomaly detection
         run: |
-          python anomaly_detection.py
+          python detect_anomalies.py
 
       - name: Upload result artifacts
         uses: actions/upload-artifact@v4

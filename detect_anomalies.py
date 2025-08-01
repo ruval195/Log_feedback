@@ -84,5 +84,5 @@ with open("metrics_word2vec_linux2k.txt", "w") as f:
     f.write(report_w2v)
 
 with open("metrics_logbert_linux2k.txt", "w") as f:
-    f.write("LogBERT + Isolation Forest Metrics\n")
+    f.write("LogBERT\n")
     f.write(report_bert)
