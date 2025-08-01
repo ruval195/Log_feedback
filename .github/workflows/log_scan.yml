@@ -20,7 +20,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install -r "$GITHUB_WORKSPACE/requirements.txt"
+          pip install pandas numpy scikit-learn gensim transformers torch tqdm
 
       - name: Run anomaly detection
         run: |
