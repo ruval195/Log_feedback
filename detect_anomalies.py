@@ -12,7 +12,7 @@ from transformers import BertTokenizer, BertModel
 from tqdm import tqdm
 
 
-LOG_FILE = "loghub-2.0/2k_dataset/Linux/Linux_2k.log"
+LOG_FILE = "output.log"
 
 with open(LOG_FILE, "r") as f:
     raw_logs = [line.strip() for line in f if line.strip()]
