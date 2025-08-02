@@ -3,7 +3,8 @@ name: Anomaly Detection on Log Change
 on:
   push:
     paths:
-      - "output.log"
+      - output.log
+      - .github/workflows/log_scan.yml
 
 jobs:
   log-scan:
