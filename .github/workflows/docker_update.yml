@@ -1,0 +1,30 @@
+name: Build and Push Docker Image
+
+on:
+  push:
+    paths:
+      - Dockerfile
+      - requirements.txt
+      - .github/workflows/docker-publish.yml
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Log in to DockerHub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Build the Docker image
+        run: |
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/log-scan:latest .
+
+      - name: Push image to DockerHub
+        run: |
+          docker push ${{ secrets.DOCKER_USERNAME }}/log-scan:latest

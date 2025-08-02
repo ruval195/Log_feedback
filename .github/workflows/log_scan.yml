@@ -3,24 +3,17 @@ name: Anomaly Detection on Log Change
 on:
   push:
     paths:
-      - "output.log"
+      - output.log
+      - .github/workflows/log_scan.yml
 
 jobs:
-  detect-anomalies:
+  log-scan:
     runs-on: ubuntu-latest
-
+    container:
+      image: docker.io/ruval195/log-scan:latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.10"
-
-      - name: Install dependencies
-        run: |
-          pip install pandas numpy scikit-learn gensim transformers torch tqdm
 
       - name: Run anomaly detection
         run: |
