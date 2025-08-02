@@ -10,7 +10,7 @@ jobs:
   log-scan:
     runs-on: ubuntu-latest
     container:
-      image: docker.io/${{ secrets.DOCKER_USERNAME }}/log-scan:latest
+      image: docker.io/"${{ secrets.DOCKER_USERNAME }}"/log-scan:latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
