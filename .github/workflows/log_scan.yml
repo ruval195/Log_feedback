@@ -6,9 +6,10 @@ on:
       - "output.log"
 
 jobs:
-  detect-anomalies:
+  log-scan:
     runs-on: ubuntu-latest
-
+    container:
+      image: docker.io/${{ secrets.DOCKER_USERNAME }}/log-scan:latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
